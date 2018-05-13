@@ -1,0 +1,11 @@
+.grad {
+    background: linear-gradient(60deg, #2cb5e8, #f545b6);
+    padding: 10px;
+    margin: 2%;
+    color: white;
+  }
+
+  .grad2 {
+    background: linear-gradient(60deg, #e8517b, #9131ce);
+
+  }
