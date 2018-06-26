@@ -1,16 +1,14 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-3 grad" *ngFor="let tx of loraPackets; let i = index">
-      <p>Application Name : {{tx.applicationName}}</p>
-      <p>Device Name : {{tx.deviceName}}</p>
-      <p>Data : {{tx.data}}</p>
-      <p>No. of Received : {{tx.count}}</p>
-      <p>Tx Info : {{tx.txInfo | json}}</p>
-      <p>Rx Info : {{tx.rxInfo | json}}</p>
-      <button (click)="sendDownLink(tx.data)">Send Data</button> <br>
-    </div>
-  </div>
+<mat-toolbar class="mat-elevation-z6" color="primary">
+
+  <button class="nav-item" mat-button>Home</button>
+  <button class="nav-item" mat-button>MQTT Dash</button>
+  <button class="nav-item" mat-button>Basic</button>
+
+
+</mat-toolbar>
+
+<div style="width:80%;margin: auto; margin-top:20px;">
+
+  <router-outlet></router-outlet>
+
 </div>
-
-
-
