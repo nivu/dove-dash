@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  name = "anand";
+  constructor() {
+
+    setTimeout(() => {
+      this.name = "raj";
+    }, 3000);
+  }
 
   ngOnInit() {
   }
+
+
 
 }

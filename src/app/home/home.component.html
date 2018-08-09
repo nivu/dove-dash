@@ -1,68 +1,85 @@
-<mat-grid-list class="grid-top" cols="4" rowHeight="1:1">
-  <mat-grid-tile>
-    <mat-card class="mat-elevation-z4">
-      <ngx-gauge [type]="gaugeType" [value]="gaugeValue" [label]="gaugeLabel" [append]="gaugeAppendText" size=100>
-      </ngx-gauge>
-    </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile>
+<mat-grid-list class="grid-top" cols="8" rowHeight="1:1">
+  <mat-grid-tile *ngFor="let val of gaugeValue">
     <mat-card class="mat-elevation-z6">
-      <ngx-gauge [type]="gaugeType" [value]="gaugeValue1" [label]="gaugeLabel" [append]="gaugeAppendText" size=100> </ngx-gauge>
-
+      <ngx-gauge [type]="gaugeType" [value]="val" [label]="gaugeLabel" [append]="gaugeAppendText" size=100></ngx-gauge>
     </mat-card>
   </mat-grid-tile>
-  <mat-grid-tile>
-    <mat-card class="mat-elevation-z6">
-      <ngx-gauge [type]="gaugeType" [value]="gaugeValue2" [label]="gaugeLabel" [append]="gaugeAppendText" size=100> </ngx-gauge>
 
-    </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <mat-card class="mat-elevation-z6">
-      <ngx-gauge [type]="gaugeType" [value]="gaugeValue3" [label]="gaugeLabel" [append]="gaugeAppendText" size=100> </ngx-gauge>
-
-    </mat-card>
-  </mat-grid-tile>
 </mat-grid-list>
 
 
 <mat-card class="mat-elevation-z6 example-table">
 
-  <mat-table #table [dataSource]="dataSource" class="example-table" matSort matSortActive="created" matSortDisableClear matSortDirection="asc">
+  <table datatable class="row-border hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Foo</td>
+        <td>Bar</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Someone</td>
+        <td>Youknow</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Iamout</td>
+        <td>Ofinspiration</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Yoda</td>
+        <td>Skywalker</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Patrick</td>
+        <td>Dupont</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Barack</td>
+        <td>Obama</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>François</td>
+        <td>Holland</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Michel</td>
+        <td>Popo</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Chuck</td>
+        <td>Norris</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Simon</td>
+        <td>Robin</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>Louis</td>
+        <td>Lin</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Zelda</td>
+        <td>Link</td>
+      </tr>
+    </tbody>
+  </table>
 
-    <!--- Note that these columns can be defined in any order.
- The actual rendered columns are set as a property on the row definition" -->
-
-    <!-- Number Column -->
-    <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef>#</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
-    </ng-container>
-
-    <!-- Title Column -->
-    <ng-container matColumnDef="a">
-      <mat-header-cell *matHeaderCellDef>A1</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{ row.a }}</mat-cell>
-    </ng-container>
-
-    <!-- State Column -->
-    <ng-container matColumnDef="d">
-      <mat-header-cell *matHeaderCellDef>A2</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{ row.d }}</mat-cell>
-    </ng-container>
-
-    <!-- Created Column -->
-    <ng-container matColumnDef="time">
-      <mat-header-cell *matHeaderCellDef mat-sort-header disableClear="true">
-        Time
-      </mat-header-cell>
-      <mat-cell *matCellDef="let row">{{ row.time | date }}</mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-
-  <mat-paginator [length]="resultsLength" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
-  </mat-paginator>
 </mat-card>

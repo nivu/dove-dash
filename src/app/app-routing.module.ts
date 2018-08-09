@@ -28,7 +28,7 @@ const appRoutes: Routes = [{
 }, {
   path: 'mqtt-dash',
   component: MqttDashComponent,
-  canActivate: [AuthGuard]
+  //canActivate: [AuthGuard]
 }, {
   path: 'about',
   component: AboutComponent
