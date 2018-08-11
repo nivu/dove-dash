@@ -1,1 +1,13 @@
+h6 {
+  margin: 0px !important;
+  text-align: center;
+  font-size: 0.4em;
+}
 
+mat-card-content {
+  margin: 0px !important;
+}
+
+.reading-label {
+  font-size: 12px !important;
+}

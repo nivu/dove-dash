@@ -1,10 +1,15 @@
-<mat-toolbar class="mat-elevation-z6" color="primary">
+<mat-toolbar *ngIf="user.name" class="mat-elevation-z6" color="primary">
 
-  <button class="nav-item" mat-button routerLink="/">Home</button>
-  <button class="nav-item" mat-button routerLink="/mqtt-dash">MQTT Dash</button>
-  <button class="nav-item" mat-button routerLink="/about">Basic</button>
+  <button class="nav-item" mat-button routerLink="/ciet/home">Dashboard</button>
+  <button class="nav-item" mat-button routerLink="/ciet/logger">Logger</button>
+  <span class="spacer"></span>
+  <label class="nav-item">Welcome, {{user.name}}</label>
+  <button class="nav-item" mat-button (click)="logOut()">Log Out</button>
 
+</mat-toolbar>
 
+<mat-toolbar *ngIf="!user.name" class="mat-elevation-z6" color="primary">
+  Data Logger
 </mat-toolbar>
 
 <div style="width:80%;margin: auto; margin-top:20px;">

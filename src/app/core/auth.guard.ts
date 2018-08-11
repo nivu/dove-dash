@@ -20,22 +20,15 @@ import 'rxjs/add/operator/take';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthService, private router: Router) { }
 
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable < boolean > | boolean {
-
-    return this.auth.user
-      .take(1)
-      .map(user => !!user)
-      .do(loggedIn => {
-        if (!loggedIn) {
-          console.log('access denied')
-          this.router.navigate(['/login']);
-        }
-      })
-
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (localStorage.getItem('currentUser')) {
+      return true;
+    }
+    // not logged in so redirect to login page with the return url
+    this.router.navigate(['/ciet'], { queryParams: { returnUrl: state.url } });
+    return false;
   }
 }

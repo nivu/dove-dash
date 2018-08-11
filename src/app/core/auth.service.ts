@@ -5,88 +5,61 @@ import {
   Router
 } from '@angular/router';
 
-import * as firebase from 'firebase/app';
-import {
-  AngularFireAuth
-} from 'angularfire2/auth';
-import {
-  AngularFirestore,
-  AngularFirestoreDocument
-} from 'angularfire2/firestore';
-
 import {
   Observable
 } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap'
 import 'rxjs/add/observable/of';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { Subject } from 'rxjs/Subject';
 
 interface User {
-  uid: string;
-  email: string;
-  photoURL ?: string;
-  displayName ?: string;
-  role ?: string;
+  id: string;
+  name: string;
 }
 
 @Injectable()
 export class AuthService {
 
-  user: Observable < User > ;
+  private url: string = 'http://livemonitoring.co.in/ciet/scripts';
 
-  constructor(private afAuth: AngularFireAuth,
-    private afs: AngularFirestore,
-    private router: Router) {
+  public user = new Subject<User>();
 
-    //// Get auth data, then get firestore user document || null
-    this.user = this.afAuth.authState
-      .switchMap(user => {
-        if (user) {
-          return this.afs.doc < User > (`users/${user.uid}`).valueChanges()
-        } else {
-          return Observable.of(null)
+  constructor(private router: Router, private http: Http) {
+
+  }
+
+  userData(): Observable<User> {
+    return this.user.asObservable();
+  }
+
+  login(user): Observable<any> {
+
+    // console.log(user);
+    const getLoginUrl = this.url + 'login.php';
+    return this.http
+      .post(getLoginUrl, user)
+      .map(
+        res => {
+          // console.log(res)
+          if (res.json().status == true) {
+            localStorage.setItem('currentUser', JSON.stringify(res.json()));
+            this.user.next(res.json());
+          }
+          return res.json();
+        },
+        err => {
+          return err;
         }
-      })
+      )
   }
 
-  googleLogin() {
-    const provider = new firebase.auth.GoogleAuthProvider()
-    return this.oAuthLogin(provider);
+  logout() {
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['/ciet']);
+    let data: User = { name: '', id: '' };
+    this.user.next(data);
+
   }
 
-  private oAuthLogin(provider) {
-    return this.afAuth.auth.signInWithPopup(provider)
-      .then((credential) => {
-        this.updateUserData(credential.user);
-        this.router.navigate(['/profile']);
-      })
-  }
-
-  private updateUserData(user) {
-    // Sets user data to firestore on login
-
-    const userRef: AngularFirestoreDocument < any > = this.afs.doc(`users/${user.uid}`);
-
-    userRef.valueChanges().subscribe(resp => {
-      if (resp) {
-        console.log('Existing User');
-      } else {
-        const data: User = {
-          uid: user.uid,
-          email: user.email,
-          displayName: user.displayName,
-          photoURL: user.photoURL,
-          role: 'DEALER'
-        }
-        return userRef.set(data, {
-          merge: true
-        })
-      }
-    })
-  }
-
-  signOut() {
-    this.afAuth.auth.signOut().then(() => {
-      this.router.navigate(['/']);
-    });
-  }
 }
