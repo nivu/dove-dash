@@ -1,3 +1,20 @@
+<mat-card>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="from" placeholder="From" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker1" [(ngModel)]="to" placeholder="To" required>
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <button mat-raised-button (click)="downloadData()" color="primary">Download</button>
+
+</mat-card>
+
 <mat-card class="mat-elevation-z6 example-table">
   <mat-table #table [dataSource]="dataSource" class="example-table" matSort matSortActive="created" matSortDisableClear matSortDirection="asc">
 

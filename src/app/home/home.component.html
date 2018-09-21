@@ -1,6 +1,22 @@
 <mat-spinner *ngIf="!gaugeValue.length"></mat-spinner>
 
+<mat-chip-list>
+  <mat-chip color="primary" *ngIf="lastUpdate" selected>Last Update</mat-chip>
+  <mat-chip color="accent" *ngIf="lastUpdate" selected>{{lastUpdate}}</mat-chip>
+</mat-chip-list>
+
 <mat-grid-list class="grid-top" cols="8" rowHeight="1:1">
+  <mat-grid-tile>
+    <mat-card class="mat-elevation-z6" style="background-color: aqua;">
+
+      <mat-card-content>
+        <ngx-gauge min="0" max="200" [type]="gaugeType" [value]="analog" [label]="0" [append]="analogAppendText" size=100
+          foregroundColor="rgba(0, 0, 0, 1)"></ngx-gauge>
+      </mat-card-content>
+
+    </mat-card>
+  </mat-grid-tile>
+
   <mat-grid-tile *ngFor="let val of gaugeValue;let i = index">
     <mat-card class="mat-elevation-z6">
 

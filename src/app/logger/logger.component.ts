@@ -32,6 +32,8 @@ import {
 import {
   switchMap
 } from 'rxjs/operators/switchMap';
+import { AuthService } from '../core/auth.service';
+import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 
 @Component({
   selector: 'app-logger',
@@ -52,13 +54,32 @@ export class LoggerComponent implements OnInit {
   isLoadingResults = false;
   isRateLimitReached = false;
 
+  from: Date;
+  to: Date;
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public auth: AuthService) { }
+
+  downloadData() {
+    console.log('from => ', this.formatFromDate(this.from));
+    console.log('to => ', this.formatToDate(this.to));
+    this.auth.downloadLogger(this.formatFromDate(this.from), this.formatToDate(this.to)).subscribe(resp => {
+      new Angular5Csv(JSON.parse(resp._body).data, 'report');
+    })
+  }
+
+  formatFromDate(date) {
+    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' 00:00:00'
+  }
+
+  formatToDate(date) {
+    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' 23:59:59'
+  }
 
   ngOnInit() {
     this.paginator.pageSize = 10;
-    this.exampleDatabase = new ExampleHttpDao(this.http);
+    this.exampleDatabase = new ExampleHttpDao(this.http, this.auth);
     // If the user changes the sort order, reset back to the first page.
     this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
     merge(this.sort.sortChange, this.paginator.page)
@@ -128,11 +149,11 @@ export interface GithubIssue {
 }
 /** An example database that the data source uses to retrieve data for the table. */
 export class ExampleHttpDao {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public auth: AuthService) { }
   getRepoIssues(sort: string, order: string, page: number, size: number): Observable<any> {
     console.log(sort, order, page, size)
     //http://localhost/tc/fetch_json.php?page=0&size=10&order
-    const requestUrl = 'http://livemonitoring.co.in/ciet/scripts/fetch_json.php' + '?page=' + page + '&order=' + order + '&size=' + size;
+    const requestUrl = this.auth.baseUrl + 'fetch_json.php' + '?page=' + page + '&order=' + order + '&size=' + size;
     return this.http.get<any>(requestUrl);
   }
 }

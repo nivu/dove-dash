@@ -1,29 +1,27 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-import {
-  HttpClient
-} from '@angular/common/http';
+import { Component, OnInit } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { AuthService } from "../core/auth.service";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-
   gaugeType = "full";
   gaugeValue = [];
 
   gaugeLabel = "Temperature";
   gaugeAppendText = "C";
 
+  analogLabel = "Analog";
+  analogAppendText = "V";
+
   timer;
+  lastUpdate;
+  analog;
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private auth: AuthService, private http: HttpClient) {}
 
   ngOnInit() {
     this.timer = setInterval(() => {
@@ -32,10 +30,14 @@ export class HomeComponent implements OnInit {
   }
 
   getGaugeData() {
-    this.http.get("http://livemonitoring.co.in/ciet/scripts/fetch_gauge_data.php").subscribe(data => {
-      let gaugeValue = data as number[];
-      this.gaugeValue = gaugeValue.slice(1, 33);
-    })
+    this.http
+      .get(this.auth.baseUrl + "fetch_gauge_data.php")
+      .subscribe(data => {
+        console.log(data);
+        let gaugeValue = data as number[];
+        this.gaugeValue = gaugeValue.slice(1, 33);
+        this.lastUpdate = gaugeValue[33];
+        this.analog = gaugeValue[34];
+      });
   }
 }
-

@@ -10,7 +10,7 @@ import {
 } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap'
 import 'rxjs/add/observable/of';
-import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { Http } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
 
 interface User {
@@ -21,7 +21,8 @@ interface User {
 @Injectable()
 export class AuthService {
 
-  private url: string = 'http://livemonitoring.co.in/ciet/scripts';
+  public baseUrl: string = 'http://livemonitoring.co.in/ciet/scripts/';
+  //public baseUrl: string = 'http://localhost/ciet/';
 
   public user = new Subject<User>();
 
@@ -36,7 +37,7 @@ export class AuthService {
   login(user): Observable<any> {
 
     // console.log(user);
-    const getLoginUrl = this.url + 'login.php';
+    const getLoginUrl = this.baseUrl + 'login.php';
     return this.http
       .post(getLoginUrl, user)
       .map(
@@ -59,7 +60,14 @@ export class AuthService {
     this.router.navigate(['/ciet']);
     let data: User = { name: '', id: '' };
     this.user.next(data);
+  }
 
+  getDashboardData(): Observable<any> {
+    return this.http.get(this.baseUrl + "fetch_gauge_data.php");
+  }
+
+  downloadLogger(from, to): Observable<any> {
+    return this.http.get(this.baseUrl + "download.php?from=" + from + "&to=" + to);
   }
 
 }
