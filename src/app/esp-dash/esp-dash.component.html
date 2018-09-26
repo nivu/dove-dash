@@ -1,3 +1,15 @@
-<p>
-  esp-dash works!
-</p>
+<div class="container">
+  <div class="row">
+
+
+    <div class="box col-md-4" *ngFor="let tx of loraPackets; let i = index">
+
+      <p>Node Name : {{tx.node}}</p>
+      <p>pin : {{tx.pin}}</p>
+      <p>Value : {{tx.value}}</p>
+      <p>Tx Info : {{tx | json}}</p>
+    </div>
+
+  </div>
+
+</div>

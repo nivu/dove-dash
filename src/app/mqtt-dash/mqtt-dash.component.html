@@ -1,18 +1,21 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-3 grad" *ngFor="let tx of loraPackets; let i = index">
-      <p>Application Name : {{tx.applicationName}}</p>
-      <p>Device Name : {{tx.deviceName}}</p>
-      <p>Data : {{tx.data}}</p>
-      <p>No. of Received : {{tx.count}}</p>
-      <p>Tx Info : {{tx.txInfo | json}}</p>
-      <p>Rx Info : {{tx.rxInfo | json}}</p>
-      <button (click)="sendDownLink(tx.data)">Send Data</button>
-      <br>
-    </div>
-  </div>
 
-  <button (click)="directDownLink('MQ==')">ON</button>
-  <button (click)="directDownLink('MA==')">OFF</button>
+    <mat-grid-list cols="2" rowHeight="2:1">
+
+      <mat-grid-tile *ngFor="let tx of loraPackets; let i = index">
+
+        <p>Application Name : {{tx.applicationName}}</p>
+        <p>Device Name : {{tx.deviceName}}</p>
+        <p>Data : {{tx.data}}</p>
+        <p>No. of Received : {{tx.count}}</p>
+        <p>Tx Info : {{tx.txInfo | json}}</p>
+        <p>Rx Info : {{tx.rxInfo | json}}</p>
+        <button (click)="sendDownLink(tx.data)">Send Data</button>
+        <br>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </div>
 
 </div>
