@@ -22,11 +22,11 @@ const appRoutes: Routes = [
     path: "ciet",
     component: LoginComponent
   },
-  /* {
-  path: 'mqtt-dash',
-  component: MqttDashComponent,
-  canActivate: [AuthGuard]
-},*/ {
+  {
+    path: "lorawan",
+    component: MqttDashComponent
+  },
+  {
     path: "ciet/logger",
     component: LoggerComponent,
     canActivate: [AuthGuard]

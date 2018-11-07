@@ -2,7 +2,7 @@
 
 <mat-chip-list>
   <mat-chip color="primary" *ngIf="lastUpdate" selected>Last Update</mat-chip>
-  <mat-chip color="accent" *ngIf="lastUpdate" selected>{{lastUpdate}}</mat-chip>
+  <mat-chip color="accent" *ngIf="lastUpdate" selected>{{lastUpdate | date:'full'}}</mat-chip>
 </mat-chip-list>
 
 <mat-grid-list class="grid-top" cols="8" rowHeight="1:1">

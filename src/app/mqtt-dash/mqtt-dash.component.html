@@ -1,21 +1,15 @@
-<div class="container">
-  <div class="row">
+<mat-grid-list cols="4" rowHeight="2:1">
 
-    <mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let tx of loraPackets; let i = index" [colspan]="1" [rowspan]="1" [style.background]="'#DDBDF1'">
 
-      <mat-grid-tile *ngFor="let tx of loraPackets; let i = index">
-
-        <p>Application Name : {{tx.applicationName}}</p>
-        <p>Device Name : {{tx.deviceName}}</p>
-        <p>Data : {{tx.data}}</p>
-        <p>No. of Received : {{tx.count}}</p>
+    <p>Application Name : {{tx.applicationName}}<br>
+      Device Name : {{tx.deviceName}}<br>
+      Data : {{tx.data}}<br>
+      No. of Received : {{tx.count}}</p>
+    <!--
         <p>Tx Info : {{tx.txInfo | json}}</p>
         <p>Rx Info : {{tx.rxInfo | json}}</p>
         <button (click)="sendDownLink(tx.data)">Send Data</button>
-        <br>
-      </mat-grid-tile>
-    </mat-grid-list>
-
-  </div>
-
-</div>
+        <br>-->
+  </mat-grid-tile>
+</mat-grid-list>
