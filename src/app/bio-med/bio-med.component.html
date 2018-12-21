@@ -1,6 +1,6 @@
 <section class="container">
   <div class="row">
-    <mat-card class="bp-card col-md-5">
+    <mat-card class="bp-card col-md-6">
       <h2>Blood Pressure</h2>
 
       <div class="row">
@@ -22,26 +22,28 @@
       <p>&nbsp; Last Update : {{ bpData.last_bp }}</p>
     </mat-card>
 
-    <div class="col-md-5"><img width="230" src="assets/bp-chart.webp" /></div>
+    <div class="col-md-4"><img width="230" src="assets/bp-chart.webp" /></div>
+  </div>
 
-    <mat-card class="bp-card col-md-5">
-      <div class="row">
-        <div class="col">
-          <h3>{{ bpData.temp }}<i class="tiny">&#8451;</i></h3>
-
-          Temperature
-        </div>
-        <div class="col">
-          <h3>55 <i class="tiny">Kg</i></h3>
-          Weight
-        </div>
-        <div class="col">
-          <h3>100 <i class="tiny">mg/dL</i></h3>
-          Sugar Level
-        </div>
-      </div>
-      <br />
+  <div class="row">
+    <mat-card class="t-card col-md-3">
+      <h2>Temperature</h2>
+      <h3>{{ bpData.temp }}<i class="tiny">&#8451;</i></h3>
       <p>&nbsp; Last Update : {{ bpData.last_temp }}</p>
     </mat-card>
+
+    <mat-card class="w-card col-md-3">
+      <h2>Weight</h2>
+      <h3>55 <i class="tiny">Kg</i></h3>
+      <p>&nbsp; Last Update : {{ bpData.last_temp }}</p>
+    </mat-card>
+
+    <mat-card class="s-card col-md-3">
+      <h2>Sugar Level</h2>
+      <h3>100 <i class="tiny">mg/dL</i></h3>
+      <p>&nbsp; Last Update : {{ bpData.last_temp }}</p>
+    </mat-card>
+
   </div>
+
 </section>

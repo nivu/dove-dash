@@ -14,7 +14,7 @@ interface User {
 
 @Injectable()
 export class AuthService {
-  public baseUrl: string = "http://livemonitoring.co.in/ciet/scripts/";
+  public baseUrl: string = "http://livemonitoring.co.in/bmm/";
   //public baseUrl: string = 'http://localhost/ciet/';
 
   public user = new Subject<User>();
@@ -30,7 +30,7 @@ export class AuthService {
     const getLoginUrl = this.baseUrl + "login.php";
     return this.http.post(getLoginUrl, user).map(
       res => {
-        // console.log(res)
+        console.log(res);
         if (res.json().status == true) {
           localStorage.setItem("currentUser", JSON.stringify(res.json()));
           this.user.next(res.json());
@@ -45,7 +45,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem("currentUser");
-    this.router.navigate(["/bmm"]);
+    this.router.navigate([""]);
     let data: User = { name: "", id: "" };
     this.user.next(data);
   }

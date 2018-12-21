@@ -36,11 +36,11 @@ const appRoutes: Routes = [
   //   component: EspDashComponent
   // },
   {
-    path: "bmm",
+    path: "",
     component: LoginComponent
   },
   {
-    path: "bmm/home",
+    path: "home",
     component: BioMedComponent
   }
 ];

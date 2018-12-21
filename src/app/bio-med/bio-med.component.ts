@@ -42,7 +42,7 @@ export class BioMedComponent implements OnInit {
         this.bmmRest.baseUrlMedi + "fetch_dash_data.php?userId=" + this.userId
       )
       .subscribe(data => {
-        console.log(data);
+        //console.log(data);
         this.bpData = data;
       });
   }

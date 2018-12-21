@@ -1,10 +1,32 @@
 .bp-card {
-  background: linear-gradient(to right, #5ebaf6, #5eb6ca);
+  background: linear-gradient(40deg, #FE6496, #ff8182, #ff9177) !important;
+  color: #fff;
+}
+
+.t-card {
+  background: linear-gradient(to right, #5ebaf6, #08dddd);
+  color: #fff;
+}
+
+.w-card {
+  background: linear-gradient(to right, #0de5e5, #5aaeec);
+  color: #fff;
+}
+
+.s-card {
+  background: linear-gradient(to right, #5aaeec, #5e75ca);
   color: #fff;
 }
 
 h2 {
   text-align: center;
+  font-size: 1.7em;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.8em;
+
 }
 
 .mat-card {
@@ -16,4 +38,9 @@ h2 {
 
 .tiny {
   font-size: 15px !important;
+}
+
+
+p {
+  font-size: 12px;
 }

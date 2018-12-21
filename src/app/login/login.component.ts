@@ -19,7 +19,13 @@ export class LoginComponent implements OnInit {
     public snackBar: MatSnackBar
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    let user = localStorage.getItem("currentUser");
+    //console.log(user);
+    if (user && JSON.parse(user).status) {
+      this.router.navigate(["/home"]);
+    }
+  }
 
   openSnackBar() {
     this.snackBar.openFromComponent(DoveSnackbarComponent, {
@@ -33,7 +39,7 @@ export class LoginComponent implements OnInit {
       .subscribe(resp => {
         // console.log(resp);
         if (resp.status) {
-          this.router.navigate(["/bmm/home"]);
+          this.router.navigate(["/home"]);
         } else {
           // console.log('error');
           this.openSnackBar();
