@@ -5,7 +5,7 @@ import { BmmRestService } from "../services/bmm-rest/bmm-rest.service";
 @Component({
   selector: "app-bio-med",
   templateUrl: "./bio-med.component.html",
-  styleUrls: ["./bio-med.component.css"]
+  styleUrls: ["./bio-med.component.scss"]
 })
 export class BioMedComponent implements OnInit {
   timer;

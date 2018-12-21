@@ -4,7 +4,7 @@ import { IMqttMessage, MqttService } from "ngx-mqtt";
 @Component({
   selector: "app-mqtt-dash",
   templateUrl: "./mqtt-dash.component.html",
-  styleUrls: ["./mqtt-dash.component.css"]
+  styleUrls: ["./mqtt-dash.component.scss"]
 })
 export class MqttDashComponent implements OnInit {
   //application/1/device/0004a30b001f9f3c/rx

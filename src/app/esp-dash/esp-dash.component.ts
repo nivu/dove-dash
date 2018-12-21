@@ -4,7 +4,7 @@ import { IMqttMessage, MqttService } from "ngx-mqtt";
 @Component({
   selector: "app-esp-dash",
   templateUrl: "./esp-dash.component.html",
-  styleUrls: ["./esp-dash.component.css"]
+  styleUrls: ["./esp-dash.component.scss"]
 })
 export class EspDashComponent implements OnInit {
   public message: string;
