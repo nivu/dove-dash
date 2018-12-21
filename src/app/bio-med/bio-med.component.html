@@ -1,0 +1,47 @@
+<section class="container">
+  <div class="row">
+    <mat-card class="bp-card col-md-5">
+      <h2>Blood Pressure</h2>
+
+      <div class="row">
+        <div class="col">
+          <h3>{{ bpData.systole }} <i class="tiny">mmHg</i></h3>
+          Systolic
+        </div>
+        <div class="col">
+          <h3>{{ bpData.diastole }} <i class="tiny">mmHg</i></h3>
+          Diastolic
+        </div>
+        <div class="col">
+          <h3>{{ bpData.pulse }} <i class="tiny">bpm</i></h3>
+          Pulse
+        </div>
+      </div>
+      <br />
+
+      <p>&nbsp; Last Update : {{ bpData.last_bp }}</p>
+    </mat-card>
+
+    <div class="col-md-5"><img width="230" src="assets/bp-chart.webp" /></div>
+
+    <mat-card class="bp-card col-md-5">
+      <div class="row">
+        <div class="col">
+          <h3>{{ bpData.temp }}<i class="tiny">&#8451;</i></h3>
+
+          Temperature
+        </div>
+        <div class="col">
+          <h3>55 <i class="tiny">Kg</i></h3>
+          Weight
+        </div>
+        <div class="col">
+          <h3>100 <i class="tiny">mg/dL</i></h3>
+          Sugar Level
+        </div>
+      </div>
+      <br />
+      <p>&nbsp; Last Update : {{ bpData.last_temp }}</p>
+    </mat-card>
+  </div>
+</section>

@@ -1,15 +1,25 @@
 <div class="container">
   <div class="row">
+    <button mat-raised-button color="primary" (click)="directDownLink('n1', '1')">ON</button>&nbsp;&nbsp;
+    <button mat-raised-button color="secondary" (click)="directDownLink('n1', '0')">OFF</button>
 
+  </div>
 
-    <div class="box col-md-4" *ngFor="let tx of loraPackets; let i = index">
+  <div class="row">
+
+    <div class="box col-md-3" *ngFor="let tx of loraPackets; let i = index">
 
       <p>Node Name : {{tx.node}}</p>
       <p>pin : {{tx.pin}}</p>
       <p>Value : {{tx.value}}</p>
       <p>Tx Info : {{tx | json}}</p>
+
+      <button mat-raised-button color="primary" (click)="directDownLink(tx.node, '1')">ON</button> &nbsp;&nbsp;
+      <button mat-raised-button color="secondary" (click)="directDownLink(tx.node, '0')">OFF</button>
+
     </div>
 
   </div>
+
 
 </div>

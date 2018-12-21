@@ -8,32 +8,40 @@ import { AuthGuard } from "./core/auth.guard";
 import { LoginComponent } from "./login/login.component";
 import { HomeComponent } from "./home/home.component";
 import { MqttDashComponent } from "./mqtt-dash/mqtt-dash.component";
-import { AboutComponent } from "./about/about.component";
+import { BioMedComponent } from "./bio-med/bio-med.component";
 import { LoggerComponent } from "./logger/logger.component";
 import { EspDashComponent } from "./esp-dash/esp-dash.component";
 
 const appRoutes: Routes = [
+  // {
+  //   path: "ciet/home",
+  //   component: HomeComponent,
+  //   canActivate: [AuthGuard]
+  // },
+  // {
+  //   path: "ciet",
+  //   component: LoginComponent
+  // },
+  // {
+  //   path: "lorawan",
+  //   component: MqttDashComponent
+  // },
+  // {
+  //   path: "ciet/logger",
+  //   component: LoggerComponent,
+  //   canActivate: [AuthGuard]
+  // },
+  // {
+  //   path: "esp-dash",
+  //   component: EspDashComponent
+  // },
   {
-    path: "ciet/home",
-    component: HomeComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: "ciet",
+    path: "bmm",
     component: LoginComponent
   },
   {
-    path: "lorawan",
-    component: MqttDashComponent
-  },
-  {
-    path: "ciet/logger",
-    component: LoggerComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: "esp-dash",
-    component: EspDashComponent
+    path: "bmm/home",
+    component: BioMedComponent
   }
 ];
 

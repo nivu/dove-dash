@@ -29,6 +29,10 @@ export class HomeComponent implements OnInit {
     }, 3000);
   }
 
+  ngOnDestroy() {
+    clearInterval(this.timer);
+  }
+
   getGaugeData() {
     this.http
       .get(this.auth.baseUrl + "fetch_gauge_data.php")

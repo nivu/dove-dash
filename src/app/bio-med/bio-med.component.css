@@ -1,0 +1,19 @@
+.bp-card {
+  background: linear-gradient(to right, #5ebaf6, #5eb6ca);
+  color: #fff;
+}
+
+h2 {
+  text-align: center;
+}
+
+.mat-card {
+  margin: 10px !important;
+  width: 95% !important;
+  height: 50% !important;
+
+}
+
+.tiny {
+  font-size: 15px !important;
+}

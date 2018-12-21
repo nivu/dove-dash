@@ -41,5 +41,16 @@ export class EspDashComponent implements OnInit {
     });
   }
 
+  directDownLink(node, val) {
+    this.unsafePublish("control/" + node, val);
+  }
+
+  public unsafePublish(topic: string, message: string): void {
+    this._mqttService.unsafePublish(topic, message, {
+      qos: 1,
+      retain: true
+    });
+  }
+
   ngOnInit() {}
 }
