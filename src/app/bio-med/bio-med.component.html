@@ -28,14 +28,14 @@
   <div class="row">
     <mat-card class="t-card col-md-3">
       <h2>Temperature</h2>
-      <h3>{{ bpData.temp }}<i class="tiny">&#8451;</i></h3>
+      <h3>{{ bpData.temp }}<i class="tiny">&#8457;</i></h3>
       <p>&nbsp; Last Update : {{ bpData.last_temp }}</p>
     </mat-card>
 
     <mat-card class="w-card col-md-3">
       <h2>Weight</h2>
-      <h3>55 <i class="tiny">Kg</i></h3>
-      <p>&nbsp; Last Update : {{ bpData.last_temp }}</p>
+      <h3>{{ bpData.weight }} <i class="tiny">Kg</i></h3>
+      <p>&nbsp; Last Update : {{ bpData.last_weight }}</p>
     </mat-card>
 
     <mat-card class="s-card col-md-3">
@@ -43,7 +43,5 @@
       <h3>100 <i class="tiny">mg/dL</i></h3>
       <p>&nbsp; Last Update : {{ bpData.last_temp }}</p>
     </mat-card>
-
   </div>
-
 </section>

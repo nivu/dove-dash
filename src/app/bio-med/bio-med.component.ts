@@ -19,7 +19,9 @@ export class BioMedComponent implements OnInit {
     pulse: 0,
     last_bp: "",
     temp: 0,
-    last_temp: ""
+    last_temp: "",
+    weight: 0,
+    last_weight: ""
   };
 
   constructor(private bmmRest: BmmRestService, private http: HttpClient) {
