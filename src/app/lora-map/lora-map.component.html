@@ -1,0 +1,34 @@
+<div class="container">
+
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="true">
+    <agm-marker *ngFor="let m of markers; let i = index" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label"
+      [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
+
+      <agm-info-window>
+        <strong>InfoWindow content</strong>
+      </agm-info-window>
+
+    </agm-marker>
+  </agm-map>
+
+
+  <div class="row">
+    <div class="col-lg-3 grad" *ngFor="let tx of loraPackets; let i = index">
+      <p>Application Name : {{tx.applicationName}}</p>
+      <p>Device Name : {{tx.deviceName}}</p>
+      <p>Data : {{tx.data}}</p>
+      <p>No. of Received : {{tx.count}}</p>
+      <p>Tx Info : {{tx.txInfo | json}}</p>
+      <p>Rx Info : {{tx.rxInfo | json}}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3 grad" *ngFor="let m of markers; let i = index">
+      <p>Lat : {{m.lat}}</p>
+      <p>Lng : {{m.lng}}</p>
+      <p>Label : {{m.label}}</p>
+
+    </div>
+  </div>
+</div>

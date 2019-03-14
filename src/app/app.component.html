@@ -1,6 +1,6 @@
 <mat-toolbar *ngIf="user.name" class="mat-elevation-z6" color="primary">
 
-  <button class="nav-item" mat-button routerLink="/home">Bio Medical Monitoring</button>
+  <button class="nav-item" mat-button routerLink="/home">LoRa GPS Mapper</button>
   <!--<button class="nav-item" mat-button routerLink="/ciet/logger">Logger</button>-->
   <span class="spacer"></span>
   <label class="nav-item">{{user.name}}</label>
@@ -9,7 +9,7 @@
 </mat-toolbar>
 
 <mat-toolbar *ngIf="!user.name" class="mat-elevation-z6" color="primary">
-  Bio Medical Monitoring
+  LoRa GPS Mapper
 </mat-toolbar>
 
 <div style="width:80%;margin: auto; margin-top:20px;">

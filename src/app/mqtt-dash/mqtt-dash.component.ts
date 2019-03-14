@@ -140,7 +140,7 @@ export class MqttDashComponent implements OnInit {
     console.log(this.loraPackets);
   }
 
-  lastPAcket = "";
+  lastPacket = "";
 
   motorControlDownLink(data) {
     console.log(data);
@@ -148,12 +148,12 @@ export class MqttDashComponent implements OnInit {
     if (dataArray.length == 2) {
       var dlData = dataArray[1];
       console.log("dldata" + dlData);
-      if (parseInt(dlData) < 5 && this.lastPAcket != "MQ==") {
+      if (parseInt(dlData) < 5 && this.lastPacket != "MQ==") {
         this.directDownLink("MQ==");
-        this.lastPAcket = "MQ==";
-      } else if (parseInt(dlData) > 5 && this.lastPAcket != "MA==") {
+        this.lastPacket = "MQ==";
+      } else if (parseInt(dlData) > 5 && this.lastPacket != "MA==") {
         this.directDownLink("MA==");
-        this.lastPAcket = "MA==";
+        this.lastPacket = "MA==";
       }
     }
   }

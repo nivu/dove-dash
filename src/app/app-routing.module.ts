@@ -12,6 +12,8 @@ import { BioMedComponent } from "./bio-med/bio-med.component";
 import { LoggerComponent } from "./logger/logger.component";
 import { EspDashComponent } from "./esp-dash/esp-dash.component";
 
+import { LoraMapComponent } from "./lora-map/lora-map.component";
+
 const appRoutes: Routes = [
   // {
   //   path: "ciet/home",
@@ -35,13 +37,15 @@ const appRoutes: Routes = [
   //   path: "esp-dash",
   //   component: EspDashComponent
   // },
+
+  // {
+  //   path: "home",
+  //   component: BioMedComponent
+  // },
+
   {
     path: "",
-    component: LoginComponent
-  },
-  {
-    path: "home",
-    component: BioMedComponent
+    component: LoraMapComponent
   }
 ];
 
