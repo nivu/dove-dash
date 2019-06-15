@@ -33,20 +33,21 @@ const appRoutes: Routes = [
   //   component: LoggerComponent,
   //   canActivate: [AuthGuard]
   // },
-  // {
-  //   path: "esp-dash",
-  //   component: EspDashComponent
-  // },
+  {
+    // path: "esp-dash",
+    path: "",
+    component: EspDashComponent
+  }
 
   // {
   //   path: "home",
   //   component: BioMedComponent
   // },
 
-  {
-    path: "",
-    component: LoraMapComponent
-  }
+  // {
+  //   path: "",
+  //   component: LoraMapComponent
+  // }
 ];
 
 @NgModule({
