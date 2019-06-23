@@ -38,9 +38,14 @@ import { LoraMapComponent } from "./lora-map/lora-map.component";
 
 import { AgmCoreModule } from "@agm/core";
 
+// cloud mqtt broker free
+// https://diyprojects.io/8-online-mqtt-brokers-iot-connected-objects-cloud#.XQeVObwzZnI
+// HiveMq = host -> broker.hivemq.com, ws port -> 8000, tcp port -> 1883,
+// Mosquitto =  host -> iot.eclipse.org, ws port -> 1883 / 8883, tcp port -> X,
+
 export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
   hostname: "broker.hivemq.com", // "192.168.1.100",
-  port: 8000, // 1884,
+  port: 8000,
   path: "/mqtt" //"/ws"
 };
 

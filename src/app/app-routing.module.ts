@@ -35,7 +35,7 @@ const appRoutes: Routes = [
   // },
   {
     // path: "esp-dash",
-    path: "",
+    path: "iot",
     component: EspDashComponent
   }
 
