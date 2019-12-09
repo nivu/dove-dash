@@ -8,7 +8,7 @@ import { CoreModule } from "./core/core.module";
 import { AuthGuard } from "./core/auth.guard";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
-import { config } from "../environments/config";
+//import { config } from "../environments/config";
 
 /* Angular Material*/
 import { CustomMaterialModule } from "./core/custom-material.module";
@@ -76,9 +76,9 @@ export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
     CoreModule,
     AppRoutingModule,
     MqttModule.forRoot(MQTT_SERVICE_OPTIONS),
-    AgmCoreModule.forRoot({
-      apiKey: config.mapApiKey
-    }),
+    // AgmCoreModule.forRoot({
+    //   apiKey: config.mapApiKey
+    // }),
     HttpModule,
     HttpClientModule,
     NgxGaugeModule,
