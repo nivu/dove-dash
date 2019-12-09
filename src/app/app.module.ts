@@ -76,9 +76,9 @@ export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
     CoreModule,
     AppRoutingModule,
     MqttModule.forRoot(MQTT_SERVICE_OPTIONS),
-    // AgmCoreModule.forRoot({
-    //   apiKey: config.mapApiKey
-    // }),
+    AgmCoreModule.forRoot({
+      apiKey: ""
+    }),
     HttpModule,
     HttpClientModule,
     NgxGaugeModule,
