@@ -43,10 +43,17 @@ import { AgmCoreModule } from "@agm/core";
 // HiveMq = host -> broker.hivemq.com, ws port -> 8000, tcp port -> 1883,
 // Mosquitto =  host -> iot.eclipse.org, ws port -> 1883 / 8883, tcp port -> X,
 
+// export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
+//   hostname: "broker.hivemq.com", // "192.168.1.100",
+//   port: 8000,
+//   path: "/mqtt" //"/ws"
+// };
+
 export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
-  hostname: "broker.hivemq.com", // "192.168.1.100",
-  port: 8000,
-  path: "/mqtt" //"/ws"
+  //hostname: "192.168.43.216", // "192.168.1.100",
+  hostname: "192.168.0.103", // "192.168.1.100",
+  port: 1884,
+  path: "/ws" //"/ws"
 };
 
 @NgModule({

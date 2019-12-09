@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
     this.http
       .get(this.auth.baseUrl + "fetch_gauge_data.php")
       .subscribe(data => {
-        console.log(data);
+        // console.log(data);
         let gaugeValue = data as number[];
         this.gaugeValue = gaugeValue.slice(1, 33);
         this.lastUpdate = gaugeValue[33];

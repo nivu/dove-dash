@@ -10,7 +10,7 @@ export class EspDashComponent implements OnInit {
   public message: string;
   incoming;
   duplicate = false;
-  loraPackets = new Array();
+  mqPackets = new Array();
   i = 0;
 
   // mosquitto_pub -h broker.hivemq.com -p 1883 -t kt-data/1 -m '{"node":1, "pin":1, "value":1}'
@@ -28,22 +28,22 @@ export class EspDashComponent implements OnInit {
 
         this.duplicate = false;
 
-        if (this.loraPackets.length > 0) {
-          for (this.i = 0; this.i < this.loraPackets.length; this.i++) {
-            if (this.loraPackets[this.i].node === this.incoming.node) {
-              this.loraPackets[this.i].pin = this.incoming.pin;
-              this.loraPackets[this.i].value = this.incoming.value;
-              this.loraPackets[this.i].count += 1;
+        if (this.mqPackets.length > 0) {
+          for (this.i = 0; this.i < this.mqPackets.length; this.i++) {
+            if (this.mqPackets[this.i].node === this.incoming.node) {
+              this.mqPackets[this.i].pin = this.incoming.pin;
+              this.mqPackets[this.i].value = this.incoming.value;
+              this.mqPackets[this.i].count += 1;
               this.duplicate = true;
             }
           }
           if (!this.duplicate) {
             this.incoming.count = 1;
-            this.loraPackets.push(this.incoming);
+            this.mqPackets.push(this.incoming);
           }
         } else {
           this.incoming.count = 1;
-          this.loraPackets.push(this.incoming);
+          this.mqPackets.push(this.incoming);
         }
       });
   }

@@ -24,20 +24,20 @@ const appRoutes: Routes = [
   //   path: "ciet",
   //   component: LoginComponent
   // },
-  // {
-  //   path: "lorawan",
-  //   component: MqttDashComponent
-  // },
+  {
+    path: "",
+    component: MqttDashComponent
+  }
   // {
   //   path: "ciet/logger",
   //   component: LoggerComponent,
   //   canActivate: [AuthGuard]
-  // },
-  {
-    // path: "esp-dash",
-    path: "iot",
-    component: EspDashComponent
-  }
+  // }
+  // {
+  //   // path: "esp-dash",
+  //   path: "iot",
+  //   component: EspDashComponent
+  // }
 
   // {
   //   path: "home",

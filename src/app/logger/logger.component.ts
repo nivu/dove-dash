@@ -51,6 +51,7 @@ export class LoggerComponent implements OnInit {
     "ch30",
     "ch31",
     "ch32",
+    "a0",
     "time"
   ];
   exampleDatabase: ExampleHttpDao | null;
@@ -176,6 +177,7 @@ export interface GithubIssue {
   ch30: string;
   ch31: string;
   ch32: string;
+  a0: string;
   time: string;
 }
 /** An example database that the data source uses to retrieve data for the table. */

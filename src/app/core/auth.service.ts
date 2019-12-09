@@ -14,8 +14,9 @@ interface User {
 
 @Injectable()
 export class AuthService {
-  public baseUrl: string = "http://livemonitoring.co.in/bmm/";
-  //public baseUrl: string = 'http://localhost/ciet/';
+  // public baseUrl: string = "http://livemonitoring.co.in/bmm/";
+  //public baseUrl: string = "http://localhost/ciet/";
+  public baseUrl: string = "http://livemonitoring.co.in/ciet/db/";
 
   public user = new Subject<User>();
 
@@ -45,7 +46,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem("currentUser");
-    this.router.navigate([""]);
+    this.router.navigate(["/ciet"]);
     let data: User = { name: "", id: "" };
     this.user.next(data);
   }

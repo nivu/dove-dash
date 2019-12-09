@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     let user = localStorage.getItem("currentUser");
     //console.log(user);
     if (user && JSON.parse(user).status) {
-      this.router.navigate(["/home"]);
+      this.router.navigate(["/ciet/home"]);
     }
   }
 
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       .subscribe(resp => {
         // console.log(resp);
         if (resp.status) {
-          this.router.navigate(["/home"]);
+          this.router.navigate(["/ciet/home"]);
         } else {
           // console.log('error');
           this.openSnackBar();

@@ -1,7 +1,14 @@
 <mat-toolbar *ngIf="user.name" class="mat-elevation-z6" color="primary">
 
-  <button class="nav-item" mat-button routerLink="/home">ESP Dashboard</button>
-  <!--<button class="nav-item" mat-button routerLink="/ciet/logger">Logger</button>-->
+  <button class="nav-item" mat-button routerLink="/lorawan">LoRaWAN Dashboard</button>
+
+
+  <!--<button class="nav-item" mat-button routerLink="/home">ESP Dashboard</button>-->
+  <!--<
+  <button class="nav-item" mat-button routerLink="/ciet/home">CIET Dashboard</button>
+
+  <button class="nav-item" mat-button routerLink="/ciet/logger">Logger</button>
+-->
   <span class="spacer"></span>
   <label class="nav-item">{{user.name}}</label>
   <button class="nav-item" mat-button (click)="logOut()">Log Out</button>
@@ -9,7 +16,7 @@
 </mat-toolbar>
 
 <mat-toolbar *ngIf="!user.name" class="mat-elevation-z6" color="primary">
-  ESP Dashboard
+  LoRaWAN Dashboard
 </mat-toolbar>
 
 <div style="width:80%;margin: auto; margin-top:20px;">

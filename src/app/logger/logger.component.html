@@ -16,7 +16,8 @@
 </mat-card>
 
 <mat-card class="mat-elevation-z6 example-table">
-  <mat-table #table [dataSource]="dataSource" class="example-table" matSort matSortActive="created" matSortDisableClear matSortDirection="asc">
+  <mat-table #table [dataSource]="dataSource" class="example-table" matSort matSortActive="created" matSortDisableClear
+    matSortDirection="asc">
 
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef mat-sort-header disableClear="true">#</mat-header-cell>
@@ -182,7 +183,10 @@
       <mat-header-cell *matHeaderCellDef>ch32</mat-header-cell>
       <mat-cell *matCellDef="let row">{{ row.ch32 }}</mat-cell>
     </ng-container>
-
+    <ng-container matColumnDef="a0">
+      <mat-header-cell *matHeaderCellDef>a0</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.a0 }}</mat-cell>
+    </ng-container>
 
     <ng-container matColumnDef="time">
       <mat-header-cell fxFlex="60px" *matHeaderCellDef mat-sort-header disableClear="true">
