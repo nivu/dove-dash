@@ -1,6 +1,7 @@
 <mat-toolbar *ngIf="user.name" class="mat-elevation-z6" color="primary">
 
-  <button class="nav-item" mat-button routerLink="/lorawan">LoRaWAN Dashboard</button>
+  <!-- <button class="nav-item" mat-button routerLink="/lorawan">LoRaWAN Dashboard</button>-->
+  <button class="nav-item" mat-button routerLink="/">Dashboard</button>
 
 
   <!--<button class="nav-item" mat-button routerLink="/home">ESP Dashboard</button>-->
@@ -16,7 +17,7 @@
 </mat-toolbar>
 
 <mat-toolbar *ngIf="!user.name" class="mat-elevation-z6" color="primary">
-  LoRaWAN Dashboard
+  Dashboard
 </mat-toolbar>
 
 <div style="width:80%;margin: auto; margin-top:20px;">

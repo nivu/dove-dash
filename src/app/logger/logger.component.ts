@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { MatPaginator, MatSort, MatTableDataSource } from "@angular/material";
+import { MatPaginator } from "@angular/material/paginator";
+import { MatSort } from "@angular/material/sort";
+import { MatTableDataSource } from "@angular/material/table";
 import { Observable } from "rxjs/Observable";
 import { merge } from "rxjs/observable/merge";
 import { of as observableOf } from "rxjs/observable/of";
@@ -9,7 +11,6 @@ import { map } from "rxjs/operators/map";
 import { startWith } from "rxjs/operators/startWith";
 import { switchMap } from "rxjs/operators/switchMap";
 import { AuthService } from "../core/auth.service";
-import { Angular5Csv } from "angular5-csv/Angular5-csv";
 
 @Component({
   selector: "app-logger",
@@ -65,8 +66,8 @@ export class LoggerComponent implements OnInit {
   from: Date;
   to: Date;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
   constructor(private http: HttpClient, public auth: AuthService) {}
 
   downloadData() {
@@ -78,7 +79,7 @@ export class LoggerComponent implements OnInit {
         this.formatToDate(this.to)
       )
       .subscribe(resp => {
-        new Angular5Csv(JSON.parse(resp._body).data, "report");
+        // new Angular5Csv(JSON.parse(resp._body).data, "report");
       });
   }
 

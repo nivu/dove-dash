@@ -28,7 +28,6 @@ import { HttpClientModule } from "@angular/common/http";
 
 /* Gauge Plugin */
 import { NgxGaugeModule } from "ngx-gauge";
-import { Angular5Csv } from "angular5-csv/Angular5-csv";
 
 import { MqttModule, IMqttServiceOptions } from "ngx-mqtt";
 import { LoggerComponent } from "./logger/logger.component";
@@ -37,6 +36,8 @@ import { BioMedComponent } from "./bio-med/bio-med.component";
 import { LoraMapComponent } from "./lora-map/lora-map.component";
 
 import { AgmCoreModule } from "@agm/core";
+import { UsersComponent } from './users/users.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 // cloud mqtt broker free
 // https://diyprojects.io/8-online-mqtt-brokers-iot-connected-objects-cloud#.XQeVObwzZnI
@@ -67,7 +68,9 @@ export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
     DoveSnackbarComponent,
     EspDashComponent,
     BioMedComponent,
-    LoraMapComponent
+    LoraMapComponent,
+    UsersComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

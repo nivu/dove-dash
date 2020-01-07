@@ -13,8 +13,18 @@ import { LoggerComponent } from "./logger/logger.component";
 import { EspDashComponent } from "./esp-dash/esp-dash.component";
 
 import { LoraMapComponent } from "./lora-map/lora-map.component";
+import { UsersComponent } from "./users/users.component";
+import { AddUserComponent } from "./add-user/add-user.component";
 
 const appRoutes: Routes = [
+  {
+    path: "",
+    component: UsersComponent
+  },
+  {
+    path: "add-user",
+    component: AddUserComponent
+  }
   // {
   //   path: "ciet/home",
   //   component: HomeComponent,
@@ -24,10 +34,10 @@ const appRoutes: Routes = [
   //   path: "ciet",
   //   component: LoginComponent
   // },
-  {
-    path: "",
-    component: MqttDashComponent
-  }
+  // {
+  //   path: "",
+  //   component: MqttDashComponent
+  // }
   // {
   //   path: "ciet/logger",
   //   component: LoggerComponent,
