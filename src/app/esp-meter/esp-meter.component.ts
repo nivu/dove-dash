@@ -13,14 +13,20 @@ export class EspMeterComponent implements OnInit {
   mqPackets = new Array();
   i = 0;
 
-  gaugeType = "semi";
-  gaugeValue = 28.3;
-  gaugeLabel = "Speed";
-  gaugeAppendText = "km/hr";
-
-  timer;
-  lastUpdate;
-  analog;
+  public canvasWidth = 300;
+  public needleValue = 65;
+  public centralLabel = "";
+  public name = "Gauge chart";
+  public bottomLabel = "65";
+  public options = {
+    hasNeedle: true,
+    needleColor: "gray",
+    needleUpdateSpeed: 1000,
+    arcColors: ["rgb(44, 151, 222)", "lightgray"],
+    arcDelimiters: [30],
+    rangeLabel: ["0", "100"],
+    needleStartValue: 50
+  };
 
   // mosquitto_pub -h broker.hivemq.com -p 1883 -t kt-data/1 -m '{"node":1, "pin":1, "value":1}'
   // mosquitto_sub -h broker.hivemq.com -p 1883 -t "kt-data/#" -v
@@ -41,7 +47,7 @@ export class EspMeterComponent implements OnInit {
           for (this.i = 0; this.i < this.mqPackets.length; this.i++) {
             if (this.mqPackets[this.i].node === this.incoming.node) {
               this.mqPackets[this.i].pin = this.incoming.pin;
-              this.mqPackets[this.i].value = this.incoming.value;
+              this.mqPackets[this.i].value = parseInt(this.incoming.value);
               this.mqPackets[this.i].count += 1;
               this.duplicate = true;
             }

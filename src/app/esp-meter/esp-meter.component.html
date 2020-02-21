@@ -1,29 +1,11 @@
 <div class="container">
   <div class="row">
-    All Devices
-    <button mat-raised-button color="primary" (click)="directDownLink('0', '1')">ON</button>&nbsp;&nbsp;
-    <button mat-raised-button color="secondary" (click)="directDownLink('0', '0')">OFF</button>
-
-  </div>
-
-  <div class="row">
+    <rg-gauge-chart [canvasWidth]="canvasWidth" [needleValue]="needleValue" [centralLabel]="centralLabel"
+      [options]="options" [name]="name" [bottomLabel]="bottomLabel"></rg-gauge-chart>
 
     <div class="box col-md-3" *ngFor="let tx of mqPackets; let i = index">
-
-      <p>Node Id : {{tx.node}}</p>
-      <p>Pin : {{tx.pin}}</p>
-      <p>Value : {{tx.value}}</p>
-      <p>Tx Info : {{tx | json}}</p>
-
-      <ngx-gauge [type]="gaugeType" [value]="gaugeValue" [label]="gaugeLabel" [append]="gaugeAppendText">
-      </ngx-gauge>
-
-      <button mat-raised-button color="primary" (click)="directDownLink(tx.node, '1' )">ON</button> &nbsp;&nbsp;
-      <button mat-raised-button color="secondary" (click)="directDownLink(tx.node, '0' )">OFF</button>
-
+      <rg-gauge-chart [canvasWidth]="canvasWidth" [needleValue]="tx.value" [centralLabel]="centralLabel"
+        [options]="options" [name]="tx.node + ''" [bottomLabel]="tx.value + ''"></rg-gauge-chart>
     </div>
-
   </div>
-
-
 </div>

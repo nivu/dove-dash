@@ -41,6 +41,8 @@ import { AgmCoreModule } from "@agm/core";
 import { UsersComponent } from "./users/users.component";
 import { AddUserComponent } from "./add-user/add-user.component";
 
+import { GaugeChartModule } from "angular-gauge-chart";
+
 // cloud mqtt broker free
 // https://diyprojects.io/8-online-mqtt-brokers-iot-connected-objects-cloud#.XQeVObwzZnI
 // HiveMq = host -> broker.hivemq.com, ws port -> 8000, tcp port -> 1883,
@@ -88,6 +90,7 @@ export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
     HttpModule,
     HttpClientModule,
     NgxGaugeModule,
+    GaugeChartModule,
     FormsModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
