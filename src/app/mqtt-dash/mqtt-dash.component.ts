@@ -106,7 +106,7 @@ export class MqttDashComponent implements OnInit {
 
   constructor(private _mqttService: MqttService) {
     this._mqttService
-      .observe("application/1/device/+/rx")
+      .observe("application/+/device/+/rx")
       .subscribe((message: IMqttMessage) => {
         this.message = message.payload.toString();
         this.incoming = JSON.parse(message.payload.toString());

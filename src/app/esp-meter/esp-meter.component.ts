@@ -2,16 +2,25 @@ import { Component, OnInit } from "@angular/core";
 import { IMqttMessage, MqttService } from "ngx-mqtt";
 
 @Component({
-  selector: "app-esp-dash",
-  templateUrl: "./esp-dash.component.html",
-  styleUrls: ["./esp-dash.component.scss"]
+  selector: "app-esp-meter",
+  templateUrl: "./esp-meter.component.html",
+  styleUrls: ["./esp-meter.component.scss"]
 })
-export class EspDashComponent implements OnInit {
+export class EspMeterComponent implements OnInit {
   public message: string;
   incoming;
   duplicate = false;
   mqPackets = new Array();
   i = 0;
+
+  gaugeType = "semi";
+  gaugeValue = 28.3;
+  gaugeLabel = "Speed";
+  gaugeAppendText = "km/hr";
+
+  timer;
+  lastUpdate;
+  analog;
 
   // mosquitto_pub -h broker.hivemq.com -p 1883 -t kt-data/1 -m '{"node":1, "pin":1, "value":1}'
   // mosquitto_sub -h broker.hivemq.com -p 1883 -t "kt-data/#" -v

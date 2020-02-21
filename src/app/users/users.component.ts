@@ -18,7 +18,7 @@ export class UsersComponent implements OnInit {
   getData() {
     this.http.get("http://localhost:3000/users").subscribe(data => {
       console.log(data);
-      this.users = data.data;
+      this.users = data;
     });
   }
 }

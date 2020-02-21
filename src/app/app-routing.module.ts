@@ -11,6 +11,7 @@ import { MqttDashComponent } from "./mqtt-dash/mqtt-dash.component";
 import { BioMedComponent } from "./bio-med/bio-med.component";
 import { LoggerComponent } from "./logger/logger.component";
 import { EspDashComponent } from "./esp-dash/esp-dash.component";
+import { EspMeterComponent } from "./esp-meter/esp-meter.component";
 
 import { LoraMapComponent } from "./lora-map/lora-map.component";
 import { UsersComponent } from "./users/users.component";
@@ -19,6 +20,18 @@ import { AddUserComponent } from "./add-user/add-user.component";
 const appRoutes: Routes = [
   {
     path: "",
+    component: MqttDashComponent
+  },
+  {
+    path: "espdash",
+    component: EspDashComponent
+  },
+  {
+    path: "espmeter",
+    component: EspMeterComponent
+  },
+  {
+    path: "users",
     component: UsersComponent
   },
   {
@@ -42,11 +55,6 @@ const appRoutes: Routes = [
   //   path: "ciet/logger",
   //   component: LoggerComponent,
   //   canActivate: [AuthGuard]
-  // }
-  // {
-  //   // path: "esp-dash",
-  //   path: "iot",
-  //   component: EspDashComponent
   // }
 
   // {

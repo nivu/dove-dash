@@ -15,6 +15,9 @@
       <p>Value : {{tx.value}}</p>
       <p>Tx Info : {{tx | json}}</p>
 
+      <ngx-gauge [type]="gaugeType" [value]="gaugeValue" [label]="gaugeLabel" [append]="gaugeAppendText">
+      </ngx-gauge>
+
       <button mat-raised-button color="primary" (click)="directDownLink(tx.node, '1' )">ON</button> &nbsp;&nbsp;
       <button mat-raised-button color="secondary" (click)="directDownLink(tx.node, '0' )">OFF</button>
 
