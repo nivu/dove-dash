@@ -1,6 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { IMqttMessage, MqttService } from "ngx-mqtt";
 
+// view all lora packets (including gateway packets)
+// mosquitto_sub -h 192.168.0.103 -p 1883 -t "#" -v
+// mosquitto_sub -h 192.168.0.103 -p 1883 -t "application/+/device/+/rx" -v
+
+// dummy publish message to test mqtt broker
+// mosquitto_pub -h 192.168.0.103 -p 1883 -t kt-data/1 -m 'hi'
+
 @Component({
   selector: "app-mqtt-dash",
   templateUrl: "./mqtt-dash.component.html",

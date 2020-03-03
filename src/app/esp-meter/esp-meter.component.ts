@@ -14,17 +14,17 @@ export class EspMeterComponent implements OnInit {
   i = 0;
 
   public canvasWidth = 300;
-  public needleValue = 65;
+  public needleValue = 5;
   public centralLabel = "";
   public name = "Gauge chart";
-  public bottomLabel = "65";
+  public bottomLabel = "5";
   public options = {
     hasNeedle: true,
     needleColor: "gray",
-    needleUpdateSpeed: 1000,
+    needleUpdateSpeed: 100,
     arcColors: ["rgb(44, 151, 222)", "lightgray"],
     arcDelimiters: [30],
-    rangeLabel: ["0", "100"],
+    rangeLabel: ["0", "10"],
     needleStartValue: 50
   };
 
@@ -46,6 +46,7 @@ export class EspMeterComponent implements OnInit {
         if (this.mqPackets.length > 0) {
           for (this.i = 0; this.i < this.mqPackets.length; this.i++) {
             if (this.mqPackets[this.i].node === this.incoming.node) {
+              this.mqPackets[this.i].node = this.incoming.node;
               this.mqPackets[this.i].pin = this.incoming.pin;
               this.mqPackets[this.i].value = parseInt(this.incoming.value);
               this.mqPackets[this.i].count += 1;

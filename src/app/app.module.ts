@@ -48,12 +48,12 @@ import { GaugeChartModule } from "angular-gauge-chart";
 // HiveMq = host -> broker.hivemq.com, ws port -> 8000, tcp port -> 1883,
 // Mosquitto =  host -> iot.eclipse.org, ws port -> 1883 / 8883, tcp port -> X,
 
-// // for esp
-export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
-  hostname: "mqtt.eclipse.org", // "192.168.1.100",
-  port: 1883,
-  path: "" //"/ws"
-};
+// // for esp cloud mqtt
+// export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
+//   hostname: "mqtt.eclipse.org", // "192.168.1.100",
+//   port: 1883,
+//   path: "" //"/ws"
+// };
 
 // // for esp
 // export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
@@ -63,12 +63,12 @@ export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
 // };
 
 // For loraserver
-// export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
-//   //hostname: "192.168.43.216", // "192.168.1.100",
-//   hostname: "192.168.0.103", // "192.168.1.100",
-//   port: 1884,
-//   path: "/ws" //"/ws"
-// };
+export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
+  //hostname: "192.168.43.216", // "192.168.1.100",
+  hostname: "192.168.0.103", // "192.168.1.100",
+  port: 1884,
+  path: "/ws" //"/ws"
+};
 
 @NgModule({
   declarations: [

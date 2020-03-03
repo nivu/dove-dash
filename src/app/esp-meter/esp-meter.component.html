@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
     <rg-gauge-chart [canvasWidth]="canvasWidth" [needleValue]="needleValue" [centralLabel]="centralLabel"
-      [options]="options" [name]="name" [bottomLabel]="bottomLabel"></rg-gauge-chart>
+      [options]="options" [name]="name" [bottomLabel]="bottomLabel + 'V'"></rg-gauge-chart>
 
     <div class="box col-md-3" *ngFor="let tx of mqPackets; let i = index">
       <rg-gauge-chart [canvasWidth]="canvasWidth" [needleValue]="tx.value" [centralLabel]="centralLabel"
-        [options]="options" [name]="tx.node + ''" [bottomLabel]="tx.value + ''"></rg-gauge-chart>
+        [options]="options" [name]="tx.node + ''" [bottomLabel]="tx.value + 'V'"></rg-gauge-chart>
     </div>
   </div>
 </div>
