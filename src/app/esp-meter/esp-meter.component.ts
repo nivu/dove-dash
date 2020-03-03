@@ -28,9 +28,11 @@ export class EspMeterComponent implements OnInit {
     needleStartValue: 50
   };
 
+  // mosquitto_pub -h mqtt.eclipse.org -p 1883 -t kt-data/1 -m '{"node":1, "pin":1, "value":1}'
+
+  // hive mqtt
   // mosquitto_pub -h broker.hivemq.com -p 1883 -t kt-data/1 -m '{"node":1, "pin":1, "value":1}'
   // mosquitto_sub -h broker.hivemq.com -p 1883 -t "kt-data/#" -v
-
   // mosquitto_pub -h broker.hivemq.com -p 1883 -t kt-control -m '1'
 
   constructor(private _mqttService: MqttService) {
