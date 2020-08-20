@@ -4,7 +4,7 @@ import { IMqttMessage, MqttService } from "ngx-mqtt";
 @Component({
   selector: "app-esp-meter",
   templateUrl: "./esp-meter.component.html",
-  styleUrls: ["./esp-meter.component.scss"]
+  styleUrls: ["./esp-meter.component.scss"],
 })
 export class EspMeterComponent implements OnInit {
   public message: string;
@@ -25,14 +25,14 @@ export class EspMeterComponent implements OnInit {
     arcColors: ["rgb(44, 151, 222)", "lightgray"],
     arcDelimiters: [30],
     rangeLabel: ["0", "10"],
-    needleStartValue: 50
+    needleStartValue: 0,
   };
 
   // mosquitto_pub -h mqtt.eclipse.org -p 1883 -t kt-data/1 -m '{"node":1, "pin":1, "value":1}'
 
   // hive mqtt
   // mosquitto_pub -h broker.hivemq.com -p 1883 -t kt-data/1 -m '{"node":1, "pin":1, "value":1}'
-  // mosquitto_sub -h broker.hivemq.com -p 1883 -t "kt-data/#" -v
+  // mosquitto_sub -h broker.hivemq.com -p 1883 -t "kt-data/+" -v
   // mosquitto_pub -h broker.hivemq.com -p 1883 -t kt-control -m '1'
 
   constructor(private _mqttService: MqttService) {
@@ -73,7 +73,7 @@ export class EspMeterComponent implements OnInit {
   public unsafePublish(topic: string, message: string): void {
     this._mqttService.unsafePublish(topic, message, {
       qos: 1,
-      retain: true
+      retain: true,
     });
   }
 

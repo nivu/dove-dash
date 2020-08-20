@@ -20,29 +20,29 @@ import { AddUserComponent } from "./add-user/add-user.component";
 const appRoutes: Routes = [
   {
     path: "",
-    component: MqttDashComponent
+    component: MqttDashComponent,
   },
   {
     path: "espdash",
-    component: EspDashComponent
+    component: EspDashComponent,
   },
   {
     path: "espmeter",
-    component: EspMeterComponent
+    component: EspMeterComponent,
   },
   {
     path: "users",
-    component: UsersComponent
+    component: UsersComponent,
   },
   {
     path: "add-user",
-    component: AddUserComponent
-  }
-  // {
-  //   path: "ciet/home",
-  //   component: HomeComponent,
-  //   canActivate: [AuthGuard]
-  // },
+    component: AddUserComponent,
+  },
+  {
+    path: "ciet/home",
+    component: HomeComponent,
+    // canActivate: [AuthGuard],
+  },
   // {
   //   path: "ciet",
   //   component: LoginComponent
@@ -71,9 +71,9 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes, {
-      enableTracing: false
-    })
+      enableTracing: false,
+    }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
